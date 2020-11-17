@@ -6,8 +6,6 @@
 	height: 100%;
 }
 
-/* .sidebar {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-} */
+svg.navlink-icon {
+	width: 20%;
+}

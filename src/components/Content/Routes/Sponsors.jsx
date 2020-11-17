@@ -33,6 +33,7 @@ const Sponsors = () => {
 					<Button variant="primary" onClick={() => {
 							console.log(newSponsor);
 							insertSponsor(newSponsor);
+							setNewSponsor("");
 						}}>
 						Submit
 					</Button>

@@ -30,20 +30,20 @@ const Prizes = () => {
 						<Form.Label>Prize Name</Form.Label>
 						<Form.Control onChange={e => setNewPrize({...newPrize, name: e.target.value})} placeholder="Enter prize name" />
 						<Form.Text className="text-muted">
-							Adds a new sponsor to the list of sponsors.
+							Adds a new prize to the list.
 						</Form.Text>
 					</Form.Group>
 					<Form.Group>
-						<Form.Label>Prize Value in USD</Form.Label>
+						<Form.Label>Prize Value</Form.Label>
 						<Form.Control onChange={e => setNewPrize({...newPrize, value: e.target.value})} placeholder="Enter prize value" />
 						<Form.Text className="text-muted">
-							Adds a new sponsor to the list of sponsors.
+							Prize value in USD.
 						</Form.Text>
 					</Form.Group>
 					<Button variant="primary" onClick={() => {
 							insertPrize(newPrize);
 						}}>
-						Submit
+						Add New Prize
 					</Button>
 				</Form>
 				<Table striped bordered hover className="table">
