@@ -4,7 +4,7 @@ import { Navbar } from "react-bootstrap"
 const Header = () => {
 	return (
 		<Navbar bg="dark" variant="dark" className="header">
-			<Navbar.Brand>Dota 2 Database</Navbar.Brand>
+			<Navbar.Brand href="/">Dota 2 Database</Navbar.Brand>
 		</Navbar>
 	);
 }

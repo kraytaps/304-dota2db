@@ -6,6 +6,7 @@
 .header {
   height: 8vh;
 }
+
 .body {
   display: flex;
   flex-direction: row;

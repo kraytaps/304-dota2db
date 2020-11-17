@@ -1,13 +1,13 @@
 import React from 'react';
 import "./Content.css";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Matches from "./Routes/Matches";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Sponsors from "./Routes/Sponsors";
 
 const Content = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path="/matches" component={Matches} />
+				<Route path="/sponsors" component={Sponsors} />
 			</Switch>
 		</BrowserRouter>
 	);
