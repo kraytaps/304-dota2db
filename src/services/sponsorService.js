@@ -9,3 +9,7 @@ export const getSponsors = () => {
 export const insertSponsor = (name) => {
 	return api.get(`/sponsor/add?name=${name}`);
 }
+
+export const deleteSponsor = (key) => {
+	return api.get(`/sponsor/delete?key=${key}`)
+}

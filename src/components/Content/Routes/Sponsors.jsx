@@ -1,6 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, Form, Button } from "react-bootstrap";
-import { getSponsors, insertSponsor } from "../../../services/index";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
+import { getSponsors, insertSponsor, deleteSponsor } from "../../../services/sponsorService";
 
 const Sponsors = () => {
 	const [sponsors, setSponsors] = useState([]);
@@ -8,27 +11,26 @@ const Sponsors = () => {
 
 	useEffect(() => {
 		getSponsors().then(res => {
-			console.log(res);
-			setSponsors(Array.from(res.data));
+			setSponsors(res.data);
 		})
 		return () => {
 
 		}
-	}, []);
+	}, [sponsors]);
 
 	return (
 		<>
 			<div className="table-container">
 				<h1 className="table-title">Sponsors</h1>
 				<Form className="table-form">
-					<Form.Group controlId="formBasicEmail">
+					<Form.Group>
 						<Form.Label>Add New Sponsor</Form.Label>
 						<Form.Control value={newSponsor} onChange={e => setNewSponsor(e.target.value)} placeholder="Enter sponsor name" />
 						<Form.Text className="text-muted">
 							Adds a new sponsor to the list of sponsors.
 						</Form.Text>
 					</Form.Group>
-					<Button variant="primary" type="submit" onClick={() => {
+					<Button variant="primary" onClick={() => {
 							console.log(newSponsor);
 							insertSponsor(newSponsor);
 						}}>
@@ -45,7 +47,14 @@ const Sponsors = () => {
 						{sponsors ? sponsors.map((sponsor) => {
 							return (
 								<tr key={sponsor.companyName}>
-									<td>{sponsor.companyName}</td>
+									<td className="d-flex justify-content-between">
+										{sponsor.companyName}
+										<Button variant="light" size="sm" type="submit" onClick={() => {
+												deleteSponsor(sponsor.companyName)
+											}}>
+											<FontAwesomeIcon icon={faTimes} />
+										</Button>
+									</td>
 								</tr>
 							)
 						}) : null}

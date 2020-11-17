@@ -9,11 +9,6 @@ import {
 	createStage 
 } from './setup';
 
-import {
-	getSponsors,
-	insertSponsor
-} from "./sponsorService";
-
 const setupDB = () => {
 	createDB().then(res => {
 			console.log(res);
@@ -49,4 +44,6 @@ const setupDB = () => {
 		})
 }
 
-export { setupDB, getSponsors, insertSponsor };
+export {
+	setupDB
+};
