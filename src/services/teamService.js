@@ -17,3 +17,7 @@ export const deleteTeam = (key) => {
 export const filterTeam = (key) => {
 	return api.get(`/team/filter?key=${key}`)
 }
+
+export const updateTeam = (name, prizeID) => {
+	return api.get(`/team/update?name=${name}&newPrizeID=${prizeID}`)
+}

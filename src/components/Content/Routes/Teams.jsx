@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Form, Button } from "react-bootstrap";
+import { Table, Form, Button, ButtonGroup, ButtonToolbar } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons'
 import NumberFormat from 'react-number-format';
 
-import { deleteTeam, getTeams, insertTeam, filterTeam } from "../../../services/teamService";
+import { deleteTeam, getTeams, insertTeam, filterTeam, updateTeam } from "../../../services/teamService";
 
 const Teams = () => {
 	const [teams, setTeams] = useState([]);
@@ -17,6 +17,9 @@ const Teams = () => {
 		country: "",
 		prize: 0
 	});
+
+	const [showForm, setShowForm] = useState(false);
+	const [newPrizeID, setNewPrizeID] = useState();
 
 	// let mounted = false;
 	useEffect(() => {
@@ -131,11 +134,33 @@ const Teams = () => {
 									<td>{team.countryOfOrigin}</td>
 									<td className="d-flex justify-content-between">
 										{team.prizeID ? team.prizeID : "-"}
-										<Button variant="light" size="sm" className="float-right" type="submit" onClick={() => {
-												deleteTeam(team.teamName)
-											}}>
-											<FontAwesomeIcon icon={faTimes} />
-										</Button>
+										<ButtonToolbar>
+											<ButtonGroup>
+												<Button variant="light" size="sm" className="float-right mr-2" type="submit" onClick={() => {
+														setShowForm(!showForm);
+													}}>
+													<FontAwesomeIcon icon={faEdit} />
+												</Button>
+											</ButtonGroup>
+											<Form>
+												{showForm && 
+												<Form.Control size="sm" value={newPrizeID} placeholder="Enter new prize id" onKeyPress={e => {
+													if (e.charCode === 13) {
+														console.log(e.target.value)
+														updateTeam(team.teamName, e.target.value);
+													};
+												}}>
+													
+												</Form.Control>}
+											</Form>
+											<ButtonGroup>
+												<Button variant="light" size="sm" className="float-right ml-2" type="submit" onClick={() => {
+														deleteTeam(team.teamName)
+													}}>
+													<FontAwesomeIcon icon={faTimes} />
+												</Button>
+											</ButtonGroup>
+										</ButtonToolbar>
 									</td>
 								</tr>
 							)

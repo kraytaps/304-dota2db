@@ -10,7 +10,8 @@ const Prizes = () => {
 	const [prizes, setPrizes] = useState([]);
 	const [newPrize, setNewPrize] = useState({
 		name: "",
-		value: 0
+		value: 0,
+		prize: 0
 	});
 
 	useEffect(() => {
