@@ -5,6 +5,7 @@ import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons'
 import NumberFormat from 'react-number-format';
 
 import { deleteTeam, getTeams, insertTeam, filterTeam, updateTeam } from "../../../services/teamService";
+import { updatePrizes, deletePrizeAndTeams } from "../../../services/prizeService";
 
 const Teams = () => {
 	const [teams, setTeams] = useState([]);
@@ -148,6 +149,7 @@ const Teams = () => {
 													if (e.charCode === 13) {
 														console.log(e.target.value)
 														updateTeam(team.teamName, e.target.value);
+														updatePrizes();
 													};
 												}}>
 													
@@ -155,7 +157,9 @@ const Teams = () => {
 											</Form>
 											<ButtonGroup>
 												<Button variant="light" size="sm" className="float-right ml-2" type="submit" onClick={() => {
+														deletePrizeAndTeams();
 														deleteTeam(team.teamName)
+														updatePrizes();
 													}}>
 													<FontAwesomeIcon icon={faTimes} />
 												</Button>

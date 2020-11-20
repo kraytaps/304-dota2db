@@ -6,7 +6,8 @@ import {
 	createPrizeReceivedByTeam,
 	createSeriesOfMatchesPlayedOn,
 	createSponsor,
-	createStage 
+	createStage, 
+	createTeammember
 } from './setup';
 
 const setupDB = () => {
@@ -41,6 +42,10 @@ const setupDB = () => {
 		createConsistsOfMatch(res => {
 			console.log(res);
 			console.log('creating consistsofmatch table');
+		})
+		createTeammember(res => {
+			console.log(res);
+			console.log('creating teammember table');
 		})
 }
 

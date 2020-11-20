@@ -1,6 +1,6 @@
 .App {
   /* text-align: center; */
-  height: 100vh;
+  height: auto;
 }
 
 .header {
@@ -10,5 +10,5 @@
 .body {
   display: flex;
   flex-direction: row;
-  height: 92vh;
+  height: 100%;
 }

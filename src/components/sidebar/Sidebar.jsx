@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMoneyBill, faTrophy, faGamepad } from '@fortawesome/free-solid-svg-icons'
+import { faMoneyBill, faTrophy, faGamepad, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { Nav, Button } from "react-bootstrap";
 
 import { setupDB } from "../../services/index";
@@ -22,6 +22,10 @@ const Sidebar = () => {
 				<Nav.Link href="/teams" className="d-flex align-items-center">
 					<FontAwesomeIcon icon={faGamepad} className="mr-2 navlink-icon" fixedWidth />
 					Teams
+				</Nav.Link>
+				<Nav.Link href="/teammembers" className="d-flex align-items-center">
+					<FontAwesomeIcon icon={faUsers} className="mr-2 navlink-icon" fixedWidth />
+					Members
 				</Nav.Link>
 				<Button variant="outline-primary" onClick={setupDB} className="mt-5">Create Database</Button>
 			</Nav>

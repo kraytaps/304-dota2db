@@ -13,3 +13,25 @@ export const insertPrize = (prize) => {
 export const deletePrize = (key) => {
 	return api.get(`/prize/delete?key=${key}`)
 }
+
+export const deletePrizeAndTeams = () => {
+	return api.get(`/prizeandteams/deleteall`)
+}
+
+export const getSumPrize = () => {
+	return api.get(`/prize/getsum`);
+}
+
+export const getMaxPrize = () => {
+	return api.get(`/prize/getmax`);
+}
+
+export const getJoinedPrizes = () => {
+	return api.get(`/prizeandteams`).then(res => {
+		return res.data;
+	});
+}
+
+export const updatePrizes = () => {
+	return api.get(`/prize/updatelist`);
+}

@@ -32,6 +32,10 @@ const createConsistsOfMatch = () => {
 	return api.get('/setup/consistsofmatch');
 }
 
+const createTeammember = () => {
+	return api.get('/setup/teammember');
+}
+
 export { 
 	createDB, 
 	createTeam, 
@@ -40,5 +44,6 @@ export {
 	createPrize, 
 	createPrizeReceivedByTeam, 
 	createSeriesOfMatchesPlayedOn, 
-	createConsistsOfMatch 
+	createConsistsOfMatch,
+	createTeammember
 };
