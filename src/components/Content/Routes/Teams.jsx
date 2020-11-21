@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons'
 import NumberFormat from 'react-number-format';
 
-import { deleteTeam, getTeams, insertTeam, filterTeam, updateTeam } from "../../../services/teamService";
+import { deleteTeam, getTeams, insertTeam, filterTeam, updateTeam, getFirstAndLastTeams } from "../../../services/teamService";
 import { updatePrizes, deletePrizeAndTeams } from "../../../services/prizeService";
 
 const Teams = () => {
@@ -53,6 +53,13 @@ const Teams = () => {
 		})
 	}
 
+	const handleGetFirstAndLast = () => {
+		getFirstAndLastTeams().then(res => {
+			console.log(res);
+			setFilteredTeams(res.data);
+		})
+	}
+
 	return (
 		<>
 			<div className="table-container">
@@ -98,6 +105,15 @@ const Teams = () => {
 						</Form.Group>
 						<Button variant="primary" onClick={() => {
 							handleFilter(filterTerm);
+						}}>
+							Filter
+						</Button>
+						
+						<Form.Group className="mt-4">
+							<Form.Label>Get first and last place teams</Form.Label>
+						</Form.Group>
+						<Button variant="primary" onClick={() => {
+							handleGetFirstAndLast(filterTerm);
 						}}>
 							Filter
 						</Button>

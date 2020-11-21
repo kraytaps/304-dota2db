@@ -21,3 +21,9 @@ export const filterTeam = (key) => {
 export const updateTeam = (name, prizeID) => {
 	return api.get(`/team/update?name=${name}&newPrizeID=${prizeID}`)
 }
+
+export const getFirstAndLastTeams = () => {
+	return api.get('/team/firstandlast').then(res => {
+		return res.data
+	})
+}

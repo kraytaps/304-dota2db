@@ -53,6 +53,9 @@ const TeamMembers = () => {
 		})
 	}
 
+	const testArray = [1, 2, 3];
+	const testArray2 = [4, 5, 6];
+
 	return (
 		<>
 			<div className="table-container">
